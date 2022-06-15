@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 public class App {
     
@@ -14,5 +15,10 @@ public class App {
             Node currentNode = nodeList.get(i);
             System.out.println(currentNode.getData() + " => " + currentNode.getFreq());
         }
+
+        PriorityQueue<Node> priorityQueue = new PriorityQueue<Node>();
+        priorityQueue.add(nodeList.get(0));
+
+        System.out.println(priorityQueue);
     }
 }
