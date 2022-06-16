@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.PriorityQueue;
 
 public class App {
@@ -23,7 +24,12 @@ public class App {
         HuffmanTree huffmanTree = HuffmanTree.getHuffmanTree(priorityQueue);
         
         String bitCodes = "";
-        huffmanTree.printCode(huffmanTree.getRoot(), "");
+        Hashtable<Character, String> bitCodesInEachChar = huffmanTree.getBitCodesInEachChar();
+
+        for(int i = 0; i < input.length(); i++)
+        {
+            bitCodes += bitCodesInEachChar.get(input.charAt(i));
+        }
 
 
         System.out.println(bitCodes);

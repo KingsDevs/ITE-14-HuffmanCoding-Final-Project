@@ -5,6 +5,7 @@ import java.util.PriorityQueue;
 public class HuffmanTree 
 {
     private Node root;
+    private Hashtable<Character, String> bitCodeInEachChar = null;
 
     public HuffmanTree(Node root)
     {
@@ -35,16 +36,29 @@ public class HuffmanTree
         return new HuffmanTree(root);
     }
 
-    public void printCode(Node root, String bitCode) 
+    private void storeBitCodeInHash(Node root, String bitCode) 
     {
         if (root.getLeft() == null && root.getRight() == null && Character.isLetter(root.getData())) {
     
           System.out.println(root.getData() + "   |  " + bitCode);
-          root.setBitCode(bitCode);
+          bitCodeInEachChar.put(root.getData(), bitCode);
     
           return;
         }
-        printCode(root.getLeft(),  bitCode+ "0");
-        printCode(root.getRight(), bitCode + "1");
+        storeBitCodeInHash(root.getLeft(),  bitCode+ "0");
+        storeBitCodeInHash(root.getRight(), bitCode + "1");
     }
+
+    public Hashtable<Character, String> getBitCodesInEachChar()
+    {
+        if(bitCodeInEachChar == null)
+        {
+            bitCodeInEachChar = new Hashtable<Character, String>();
+            storeBitCodeInHash(root, "");
+        }
+
+        return bitCodeInEachChar;
+    }
+
+    
 }
