@@ -7,7 +7,7 @@ public class App {
     
     public static void main(String[] args) throws Exception 
     {
-        String input = "BFGFABACACBCBC";
+        String input = "BFFB";
 
         System.out.println("Original Bit Size: " + input.length() * 8 + " bits");
 
@@ -33,5 +33,9 @@ public class App {
 
 
         System.out.println(bitCodes);
+        System.out.println("Compressed Bits: " + bitCodes.length() + " bits");
+
+        String decodedData = huffmanTree.decodeData(huffmanTree.getRoot(), bitCodes);
+        System.out.println("Decoded Data: " + decodedData);
     }
 }

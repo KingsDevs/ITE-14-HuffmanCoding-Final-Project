@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.PriorityQueue;
 
+import javax.lang.model.util.ElementScanner6;
+
 public class HuffmanTree 
 {
     private Node root;
@@ -58,6 +60,30 @@ public class HuffmanTree
         }
 
         return bitCodeInEachChar;
+    }
+
+    public String decodeData(Node root, String bitCodes)
+    {
+        String decodedData = "";
+        
+        for(int i = 0; i < bitCodes.length();i++)
+        {
+            
+            if(bitCodes.charAt(i) == '0')
+                root = root.getLeft();
+            else
+                root = root.getRight();
+                
+            
+
+            if(root.getData() != null)
+            {
+                decodedData += root.getData();
+                root = this.root;
+            }
+        }
+
+        return decodedData;
     }
 
     
