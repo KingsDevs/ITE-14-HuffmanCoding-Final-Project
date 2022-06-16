@@ -8,6 +8,8 @@ public class Node
     private Node left;
     private Node right;
 
+    private String bitCode;
+
     public Node(Character data)
     {
         this.data = data;
@@ -50,6 +52,16 @@ public class Node
     public Node getRight()
     {
         return right;
+    }
+
+    public String getBitCode()
+    {
+        return bitCode;
+    }
+
+    public void setBitCode(String bitCode)
+    {
+        this.bitCode = bitCode;
     }
 
     public static ArrayList<Node> getCharFreqInString(String str)

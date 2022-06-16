@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.PriorityQueue;
 
 public class HuffmanTree 
@@ -31,5 +33,18 @@ public class HuffmanTree
         }
 
         return new HuffmanTree(root);
+    }
+
+    public void printCode(Node root, String bitCode) 
+    {
+        if (root.getLeft() == null && root.getRight() == null && Character.isLetter(root.getData())) {
+    
+          System.out.println(root.getData() + "   |  " + bitCode);
+          root.setBitCode(bitCode);
+    
+          return;
+        }
+        printCode(root.getLeft(),  bitCode+ "0");
+        printCode(root.getRight(), bitCode + "1");
     }
 }

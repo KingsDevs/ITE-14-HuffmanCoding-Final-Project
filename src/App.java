@@ -8,6 +8,8 @@ public class App {
     {
         String input = "BFGFABACACBCBC";
 
+        System.out.println("Original Bit Size: " + input.length() * 8 + " bits");
+
         ArrayList<Node> nodeList = Node.getCharFreqInString(input);
         PriorityQueue<Node> priorityQueue = new PriorityQueue<Node>(new NodeComparator());
 
@@ -20,8 +22,10 @@ public class App {
         
         HuffmanTree huffmanTree = HuffmanTree.getHuffmanTree(priorityQueue);
         
+        String bitCodes = "";
+        huffmanTree.printCode(huffmanTree.getRoot(), "");
 
 
-        
+        System.out.println(bitCodes);
     }
 }
