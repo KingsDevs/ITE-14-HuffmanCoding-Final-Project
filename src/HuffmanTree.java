@@ -38,14 +38,13 @@ public class HuffmanTree
 
     private void storeBitCodeInHash(Node root, String bitCode) 
     {
-        if (root.getLeft() == null && root.getRight() == null && Character.isLetter(root.getData())) 
+        if (root.getLeft() == null && root.getRight() == null && root.getData() != null)
         {
+            bitCodeInEachChar.put(root.getData(), bitCode);
     
-          bitCodeInEachChar.put(root.getData(), bitCode);
-    
-          return;
+            return;
         }
-        storeBitCodeInHash(root.getLeft(),  bitCode+ "0");
+        storeBitCodeInHash(root.getLeft(),  bitCode + "0");
         storeBitCodeInHash(root.getRight(), bitCode + "1");
     }
 

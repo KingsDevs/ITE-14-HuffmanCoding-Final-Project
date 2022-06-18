@@ -55,16 +55,27 @@ public class Node
 
     public static ArrayList<Node> getCharFreqInString(String str)
     {
+        char c;
+        if(Character.isWhitespace(str.charAt(0)))
+            c = ' ';
+        else
+            c = str.charAt(0);
+        
         ArrayList<Node> nodelist = new ArrayList<Node>();
-        nodelist.add(new Node(str.charAt(0)));
+        nodelist.add(new Node(c));
 
         for(int i = 1; i < str.length(); i++)
         {
+            if(Character.isWhitespace(str.charAt(0)))
+                c = ' ';
+            else
+                c = str.charAt(i);
+
             Boolean newCharacter = true;
             for(int j = 0; j < nodelist.size(); j++)
             {
                 Node currentNode = nodelist.get(j);
-                if(currentNode.getData() == str.charAt(i))
+                if(currentNode.getData() == c)
                 {
                     newCharacter = false;
                     currentNode.increment_freq();
@@ -72,7 +83,7 @@ public class Node
             }
 
             if(newCharacter)
-                nodelist.add(new Node(str.charAt(i)));
+                nodelist.add(new Node(c));
         }
 
         return nodelist;
