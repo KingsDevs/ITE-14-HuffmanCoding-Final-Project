@@ -1,8 +1,6 @@
-import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.PriorityQueue;
 
-import javax.lang.model.util.ElementScanner6;
 
 public class HuffmanTree 
 {
@@ -40,9 +38,9 @@ public class HuffmanTree
 
     private void storeBitCodeInHash(Node root, String bitCode) 
     {
-        if (root.getLeft() == null && root.getRight() == null && Character.isLetter(root.getData())) {
+        if (root.getLeft() == null && root.getRight() == null && Character.isLetter(root.getData())) 
+        {
     
-          System.out.println(root.getData() + "   |  " + bitCode);
           bitCodeInEachChar.put(root.getData(), bitCode);
     
           return;
