@@ -56,7 +56,6 @@ public class Node
     public static ArrayList<Node> getCharFreqInString(String str)
     {
 
-        
         ArrayList<Node> nodelist = new ArrayList<Node>();
         nodelist.add(new Node(str.charAt(0)));
 

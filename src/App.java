@@ -43,7 +43,7 @@ public class App
             System.out.println(currentNode.getData() + "\t\t" + currentNode.getFreq() + "\t\t" + bitCodesInEachChar.get(currentNode.getData()));
         }
 
-        System.out.println("Compressed Bit Size: " + (bitCodes.length() + nodeList.size() + totalFreq) + " bits");
+        System.out.println("Compressed Bit Size: " + (bitCodes.length() + (nodeList.size() * 8) + totalFreq) + " bits");
 
         System.out.println("Compressed Bits: " + bitCodes);
 
